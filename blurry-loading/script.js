@@ -8,7 +8,7 @@ const timerId = setInterval(blurring, 30)
 function blurring() {
     load++;
 
-    if (load > 100) {
+    if (load > 99) {
 
         clearInterval(timerId);
     }
