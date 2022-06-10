@@ -1,7 +1,6 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap");
 
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
-
-:root{
+:root {
     --left-bg-color: rgba(87,84,236,0.7);
     --right-bg-color: rgba(43, 43, 43,0.8);
     --left-btn-hover-color: rgba(87,84,236, 1);
@@ -40,7 +39,7 @@ h1 {
     left: 50%;
     top: 40%;
     transform: translateX(-50%);
-    text-transform: none;
+    text-decoration: none;
     color: #fff;
     border: #fff solid 0.2rem;
     font-size: 1rem;
