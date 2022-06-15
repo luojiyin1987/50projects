@@ -39,9 +39,10 @@ function randomSelect() {
         const radomTag = pickRandomTag();
         if (radomTag !== undefined) {
             highlightTag(radomTag);
-
+            console.log("highlightTag");
             setTimeout(() => {
                 unHighlightTag(radomTag);
+                console.log("unHighlightTag");
             }, 100)
         }
 
@@ -53,6 +54,7 @@ function randomSelect() {
         setTimeout(() => {
             const randomTag = pickRandomTag();
             highlightTag(randomTag);
+            console.log("finish");
         }, 100)
     }, times * 100);
 }
