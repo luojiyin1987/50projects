@@ -30,7 +30,7 @@ function dragEnter(e) {
     this.className += ' hovered'
 }
 
-function dragLeave() {
+function dragLeave(e) {
     this.className = 'empty'
 }
 
