@@ -35,30 +35,44 @@ canvas.addEventListener('mousemove', (e) => {
     const x2 = e.offsetX;
     const y2 = e.offsetY;
 
-    drawCircle(x2, y2)
-    drawLine(x, y, x2, y2)
+    drawCircle(x2, y2);
+    drawLine(x, y, x2, y2);
 
-    x=x2
-    y = y2
-    
+    x = x2;
+    y = y2;
+
 
 })
 
+increaseBtn.addEventListener('click', () => {
+    size += 5;
+    if (size > 50) {
+        size = 50;
+    }
+    updateSizeOnScreen();
+})
 
+decreaseBtn.addEventListener('click', () => {
+    size -= 5;
+    if (size < 5) {
+        size = 5;
+    }
+    updateSizeOnScreen();
+})
 
+colorEl.addEventListener('change', (e) => {
+    color = e.target.value;
+})
 
-
-
-
-
-
-
+clearEl.addEventListener('click', () => {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+})
 
 function drawCircle(x, y) {
     ctx.beginPath();
     ctx.arc(x, y, size, 0, Math.PI * 2);
-    ctx.fillStyle = color
-    ctx.fill()
+    ctx.fillStyle = color;
+    ctx.fill();
 }
 
 function drawLine(x1, y1, x2, y2) {
@@ -71,28 +85,5 @@ function drawLine(x1, y1, x2, y2) {
 }
 
 function updateSizeOnScreen() {
-    sizeEl.innerText = size
+    sizeEl.innerText = size;
 }
-increaseBtn.addEventListener('click', () => {
-    size += 5;
-    if (size > 50) {
-        size = 50
-    }
-    updateSizeOnScreen()
-})
-
-decreaseBtn.addEventListener('click', () => {
-    size -= 5;
-    if (size < 5) {
-        size = 5
-    }
-    updateSizeOnScreen()
-})
-
-colorEl.addEventListener('change', (e) => {
-    color = e.target.value;
-})
-
-clearEl.addEventListener('click', () => {
-    ctx.clearRect(0, 0, canvas.width, canvas.height)
-})
