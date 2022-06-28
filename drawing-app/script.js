@@ -10,6 +10,7 @@ const ctx = canvas.getContext('2d');
 let size = 10;
 let isPressed = false;
 colorEl.value = 'black';
+let color = colorEl.value;
 let x, y;
 
 canvas.addEventListener('mousedown', (e) => {
@@ -37,33 +38,13 @@ canvas.addEventListener('mousemove', (e) => {
     drawCircle(x2, y2)
     drawLine(x, y, x2, y2)
 
-    x, y = x2, y2
+    x=x2
+    y = y2
+    
 
 })
 
-increaseBtn.addEventListener('click', () => {
-    size += 5;
-    if (size > 50) {
-        size = 50
-    }
-    updateSizeOnScreen()
-})
 
-decreaseBtn.addEventListener('click', () => {
-    size -= 5;
-    if (size < 5) {
-        size = 5
-    }
-    updateSizeOnScreen()
-})
-
-colorEl.addEventListener('change', (e) => {
-    color = e.target.value;
-})
-
-clearEl.addEventListener('click', () => {
-    ctx.clearRect(0, 0, canvas.width, canvas.height)
-})
 
 
 
@@ -92,3 +73,26 @@ function drawLine(x1, y1, x2, y2) {
 function updateSizeOnScreen() {
     sizeEl.innerText = size
 }
+increaseBtn.addEventListener('click', () => {
+    size += 5;
+    if (size > 50) {
+        size = 50
+    }
+    updateSizeOnScreen()
+})
+
+decreaseBtn.addEventListener('click', () => {
+    size -= 5;
+    if (size < 5) {
+        size = 5
+    }
+    updateSizeOnScreen()
+})
+
+colorEl.addEventListener('change', (e) => {
+    color = e.target.value;
+})
+
+clearEl.addEventListener('click', () => {
+    ctx.clearRect(0, 0, canvas.width, canvas.height)
+})
