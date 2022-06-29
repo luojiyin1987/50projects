@@ -1,9 +1,6 @@
 const kinetic = document.querySelector('.kinetic');
+const loadText = document.querySelector('.loading-text');
 
-console.log("kinetic", kinetic)
-// setTimeout(() => {
-//     kinetic.style.display = 'none';
-// }, 5000)
 
 let load = 0;
 let timerNum = setInterval(loading, 50);
@@ -12,7 +9,9 @@ function loading() {
     load++;
     if (load > 99) {
         clearInterval(timerNum);
+        
     }
+    loadText.innerText = `${load}%`
     kinetic.style.opacity = scale(load, 0, 100, 1, 0)
 }
 
