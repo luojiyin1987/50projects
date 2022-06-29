@@ -18,7 +18,8 @@ body {
   width: 80px;
 }
 
-.kinetic::after  .kinetic::before {
+.kinetic::after,
+.kinetic::before {
   content: "";
   position: absolute;
   top: 0;
