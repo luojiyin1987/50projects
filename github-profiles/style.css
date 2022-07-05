@@ -41,7 +41,7 @@ body {
   color: #bbb;
 }
 
-.user-form input:foucus {
+.user-form input:focus {
   outline: none;
 }
 
@@ -56,7 +56,7 @@ body {
   margin: 0 1.5rem;
 }
 
-.avater {
+.avatar {
   border-radius: 50%;
   border: 10px solid #2a2a72;
   height: 150px;
