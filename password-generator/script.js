@@ -23,7 +23,7 @@ clipboardEl.addEventListener('click', ()=> {
     textarea.value = password
     document.body.appendChild(textarea)
     textarea.select()
-    document.execCommand('copy')
+    document.execCommand('copy') //it is async , copy lots of data is not good
     textarea.remove()
     alert('Password copied to clipboard!')
 })
