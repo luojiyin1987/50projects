@@ -21,15 +21,16 @@ clipboardEl.addEventListener('click', () => {
     if (!password) return
 
     textarea.value = password
-    document.body.appendChild(textarea)
-    textarea.select()
+    // document.body.appendChild(textarea)
+    // textarea.select()
     console.log('navigator.clipboard', navigator.clipboard)
-    textarea.remove()
+    // textarea.remove()
     navigator.clipboard.writeText(password).then(() => {
         alert('Password copied to clipboard!')
     }).catch((err) => {
         console.error('Async: Could not copy text: ', err);
     })
+    
 
 
     //document.execCommand('copy') //it is async , copy lots of data is not good
