@@ -8,49 +8,56 @@ const generateEl = document.getElementById('generate')
 const clipboardEl = document.getElementById('clipboard')
 
 const randomFunc = {
-    lower:getRandomLower,
-    upper : getRandomUpper,
+    lower: getRandomLower,
+    upper: getRandomUpper,
     number: getRandomNumber,
     symbol: getRandomSymbol
 }
 
-clipboardEl.addEventListener('click', ()=> {
+clipboardEl.addEventListener('click', () => {
     const textarea = document.createElement('textarea')
     const password = resultEl.innerText
 
-    if(!password) return 
+    if (!password) return
 
     textarea.value = password
     document.body.appendChild(textarea)
     textarea.select()
     console.log('navigator.clipboard', navigator.clipboard)
-    document.execCommand('copy') //it is async , copy lots of data is not good
     textarea.remove()
-    alert('Password copied to clipboard!')
+    navigator.clipboard.writeText(password).then(() => {
+        alert('Password copied to clipboard!')
+    }).catch((err) => {
+        console.error('Async: Could not copy text: ', err);
+    })
+
+
+    //document.execCommand('copy') //it is async , copy lots of data is not good
+
 })
 
 generateEl.addEventListener('click', () => {
-    const   length =  lengthEl.value
-    const  hasLower = lowercaseEl.checked 
-    const hasUpper =  uppercaseEl.checked 
+    const length = lengthEl.value
+    const hasLower = lowercaseEl.checked
+    const hasUpper = uppercaseEl.checked
     const hasNumber = numbersEl.checked
     const hasSymbol = symbolsEl.checked
 
     resultEl.innerText = generatePassword(hasLower, hasUpper, hasNumber, hasSymbol, length)
 })
 
-function generatePassword(lower=true, upper=true, number=true, symbol=true, length ) {
-    console.log('lower, upper, number, symbol, length',lower, upper, number, symbol, length)
+function generatePassword(lower = true, upper = true, number = true, symbol = true, length) {
+    console.log('lower, upper, number, symbol, length', lower, upper, number, symbol, length)
     let generatedPassword = ''
     const typesCount = lower + upper + number + symbol
     console.log('typesCount', typesCount);
-    const typesArr = [{lower}, {upper}, {number}, {symbol}].filter(item => Object.values(item)[0])
-    
-    if(typesCount === 0) {
+    const typesArr = [{ lower }, { upper }, { number }, { symbol }].filter(item => Object.values(item)[0])
+
+    if (typesCount === 0) {
         return ''
     }
 
-    for(let i = 0; i < length; i += typesCount) {
+    for (let i = 0; i < length; i += typesCount) {
         typesArr.forEach(type => {
             const funcName = Object.keys(type)[0]
             generatedPassword += randomFunc[funcName]()
