@@ -9,15 +9,20 @@ function currentFrame(index) {
 
 function preloadImages(){
     for(let i=1; i< frameCount; i++) {
-        const img = new Image()
-        img.src = currentFrame(i)
+        // const img = new Image()
+        // img.src = currentFrame(i)
+        const res = document.createElement('link')
+        res.rel= "preload"
+        res.as = "image"
+        res.href = currentFrame(i)
+        document.head.appendChild(res)
     }
 }
 
 const img = new Image()
 img.src = currentFrame(1)
-canvas.width = 1158
-canvas.height = 770
+canvas.width = 1920
+canvas.height = 1080
 img.onload = function() {
     context.drawImage(img, 0, 0)
 }
