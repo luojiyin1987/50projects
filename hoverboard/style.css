@@ -16,7 +16,7 @@ body {
     display:  flex;
     align-items: center;
     justify-content: center;
-    flex-direction: wrap;
+    flex-wrap: wrap;
     max-width: 400px;
 }
 
@@ -26,7 +26,7 @@ body {
     height: 16px;
     width: 16px;
     margin:2px;
-    transition: 2s ease;   
+    transition: 2s ease-in-out;   
 }
 
 .square:hover {
