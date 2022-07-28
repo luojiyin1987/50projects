@@ -58,12 +58,6 @@ const userImage = document.querySelector('.user-image')
 const username  = document.querySelector('.username')
 const role= document.querySelector('.role')
 
-console.log('testimonialsContainer', testimonialsContainer)
-console.log('testimonial', testimonial)
-console.log('userImage', userImage)
-console.log('username', username)
-console.log('role', role)
-
 let idx =1 
 function updateTestimonial() {
     const {name, position, photo, text} = testimonials[idx]
