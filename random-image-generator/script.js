@@ -2,10 +2,13 @@ const container = document.querySelector('.container')
 const unsplashURL = 'https://source.unsplash.com/random/'
 const rows = 5
 
+
+
 function randomImage() {
 
     for (let i = 0; i < rows * 3; i++) {
-        const img = document.createElement('img')
+        const img = document.createElement('img')     
+        img.classList.add('lozad')
         img.src = `${unsplashURL}${getRandomSize()}`
         container.appendChild(img)
     }
